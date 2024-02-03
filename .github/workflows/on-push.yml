@@ -31,7 +31,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 21.x
       - run: npm ci
@@ -39,10 +39,12 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          source: ./build
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          destination: ./_site
   deploy:
     environment:
       name: github-pages
