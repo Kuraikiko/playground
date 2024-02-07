@@ -28,6 +28,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - run: git remote add origin https://github.com/kuraikiko/playground.git
       - name: Install node
         uses: actions/setup-node@v2
         with:
