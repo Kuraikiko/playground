@@ -24,3 +24,8 @@ jobs:
     steps:
       - name: 'Ping'
         run: ping -c 4 api.cognitive.microsofttranslator.com
+      - name: Make API Request
+        run: |
+          curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de" \
+          -H "Content-Type: application/json; charset=UTF-8" \
+          -d "[{'Text':'Hello, World!'}]"
